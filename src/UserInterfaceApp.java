@@ -55,7 +55,16 @@ menu.add(item4);
 menuBar.add(menu);
 
 // Add menu bar to frame
-frame.add(menuBar, BorderLayout.NORTH);
+frame.setJMenuBar(menuBar);
+
+// Create text area
+JTextArea textArea = new JTextArea();
+
+// Make it scrollable
+JScrollPane scrollPane = new JScrollPane(textArea);
+
+// Add to center of layout
+frame.add(scrollPane, BorderLayout.CENTER);
 
         // Make window visible
         frame.setVisible(true);
