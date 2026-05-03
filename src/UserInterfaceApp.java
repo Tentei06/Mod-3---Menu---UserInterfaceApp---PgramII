@@ -104,6 +104,10 @@ public class UserInterfaceApp {
                     + red + ", " + green + ", " + blue + ")\n");
         });
 
+        item4.addActionListener(e -> {
+            System.exit(0);
+        });
+
         // Make window visible
         frame.setVisible(true);
     }
