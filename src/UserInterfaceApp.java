@@ -5,12 +5,13 @@ Author: Cody Walker
 Date: 05/01/2026
 ----------------------------------------------
 Pseudocode:
-1. Create main class
-2. Create main method
-3. Print placeholder message
+1. Create main window
+2. Add menu with 4 options
+3. Add text area for output
+4. Display date/time when menu item is clicked
 ----------------------------------------------
-Program Inputs: None
-Program Outputs: Placeholder message
+Program Inputs: Menu selections
+Program Outputs: Text displayed in text area
 ----------------------------------------------
 */
 
@@ -34,37 +35,43 @@ public class UserInterfaceApp {
         frame.setLayout(new BorderLayout());
 
         // Create menu bar
-JMenuBar menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
 
-// Create menu
-JMenu menu = new JMenu("Options");
+        // Create menu
+        JMenu menu = new JMenu("Options");
 
-// Create menu items
-JMenuItem item1 = new JMenuItem("Show Date/Time");
-JMenuItem item2 = new JMenuItem("Save to File");
-JMenuItem item3 = new JMenuItem("Change Background Color");
-JMenuItem item4 = new JMenuItem("Exit");
+        // Create menu items
+        JMenuItem item1 = new JMenuItem("Show Date/Time");
+        JMenuItem item2 = new JMenuItem("Save to File");
+        JMenuItem item3 = new JMenuItem("Change Background Color");
+        JMenuItem item4 = new JMenuItem("Exit");
 
-// Add items to menu
-menu.add(item1);
-menu.add(item2);
-menu.add(item3);
-menu.add(item4);
+        // Add items to menu
+        menu.add(item1);
+        menu.add(item2);
+        menu.add(item3);
+        menu.add(item4);
 
-// Add menu to menu bar
-menuBar.add(menu);
+        // Add menu to menu bar
+        menuBar.add(menu);
 
-// Add menu bar to frame
-frame.setJMenuBar(menuBar);
+        // Add menu bar to frame
+        frame.setJMenuBar(menuBar);
 
-// Create text area
-JTextArea textArea = new JTextArea();
+        // Create text area
+        JTextArea textArea = new JTextArea();
 
-// Make it scrollable
-JScrollPane scrollPane = new JScrollPane(textArea);
+        // Make it scrollable
+        JScrollPane scrollPane = new JScrollPane(textArea);
 
-// Add to center of layout
-frame.add(scrollPane, BorderLayout.CENTER);
+        // Add to center of layout
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        // Action: Show Date/Time
+        item1.addActionListener(e -> {
+            String dateTime = java.time.LocalDateTime.now().toString();
+            textArea.append("Date/Time: " + dateTime + "\n");
+        });
 
         // Make window visible
         frame.setVisible(true);
