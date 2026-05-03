@@ -73,6 +73,37 @@ public class UserInterfaceApp {
             textArea.append("Date/Time: " + dateTime + "\n");
         });
 
+        item2.addActionListener(e -> {
+            try {
+                java.io.FileWriter writer = new java.io.FileWriter("log.txt", true);
+                writer.write(textArea.getText());
+                writer.close();
+
+                textArea.append("Content saved to log.txt\n");
+            } catch (Exception ex) {
+                textArea.append("Error saving file\n");
+            }
+        });
+
+        item3.addActionListener(e -> {
+
+            // Generate darker green tones
+            int red = (int) (Math.random() * 40); // low red
+            int green = 80 + (int) (Math.random() * 60); // strong green
+            int blue = (int) (Math.random() * 30); // low blue
+
+            Color darkGreen = new Color(red, green, blue);
+
+            // Apply background color
+            frame.getContentPane().setBackground(darkGreen);
+            textArea.setBackground(darkGreen);
+            textArea.setForeground(Color.WHITE);
+
+            // Display the color used
+            textArea.append("Background changed to RGB("
+                    + red + ", " + green + ", " + blue + ")\n");
+        });
+
         // Make window visible
         frame.setVisible(true);
     }
