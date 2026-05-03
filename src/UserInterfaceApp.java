@@ -33,6 +33,30 @@ public class UserInterfaceApp {
         // Set layout
         frame.setLayout(new BorderLayout());
 
+        // Create menu bar
+JMenuBar menuBar = new JMenuBar();
+
+// Create menu
+JMenu menu = new JMenu("Options");
+
+// Create menu items
+JMenuItem item1 = new JMenuItem("Show Date/Time");
+JMenuItem item2 = new JMenuItem("Save to File");
+JMenuItem item3 = new JMenuItem("Change Background Color");
+JMenuItem item4 = new JMenuItem("Exit");
+
+// Add items to menu
+menu.add(item1);
+menu.add(item2);
+menu.add(item3);
+menu.add(item4);
+
+// Add menu to menu bar
+menuBar.add(menu);
+
+// Add menu bar to frame
+frame.add(menuBar, BorderLayout.NORTH);
+
         // Make window visible
         frame.setVisible(true);
     }
